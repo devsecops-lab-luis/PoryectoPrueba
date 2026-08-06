@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum RoleName {
+  ADMIN
+  SUPERVISOR
+  USER
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum Status {
+  TODO
+  IN_PROGRESS
+  BLOCKED
+  DONE
+}
+
+model Role {
+  id        String   @id @default(uuid())
+  name      RoleName @unique
+  users     User[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  password     String
+  name         String?
+  role         Role      @relation(fields: [roleId], references: [id])
+  roleId       String
+  tasksCreated Task[]    @relation("creator")
+  tasksAssigned Task[]   @relation("assignee")
+  histories    TaskHistory[]
+  notifications Notification[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Task {
+  id          String      @id @default(uuid())
+  title       String
+  description String?
+  creator     User        @relation("creator", fields: [creatorId], references: [id])
+  creatorId   String
+  assignee    User?       @relation("assignee", fields: [assigneeId], references: [id])
+  assigneeId  String?
+  priority    Priority    @default(MEDIUM)
+  status      Status      @default(TODO)
+  dueDate     DateTime?
+  histories   TaskHistory[]
+  notifications Notification[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model TaskHistory {
+  id         String   @id @default(uuid())
+  task       Task     @relation(fields: [taskId], references: [id])
+  taskId     String
+  changedBy  User     @relation(fields: [changedById], references: [id])
+  changedById String
+  action     String
+  field      String?
+  oldValue   String?
+  newValue   String?
+  createdAt  DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  task      Task?    @relation(fields: [taskId], references: [id])
+  taskId    String?
+  type      String
+  payload   Json?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
