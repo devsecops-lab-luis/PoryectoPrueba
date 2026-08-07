@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - ProyectoPrueba</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .page-break {
+            page-break-after: always;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #4a5f7f;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .toc {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+            margin-left: 20px;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .feature-box {
+            background: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .tech-badge {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .structure-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background: #ecf0f1;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .date {
+            text-align: center;
+            color: #95a5a6;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .warning-box {
+            background: #ffe5e5;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                padding: 20px;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Portada -->
+    <div style="text-align: center; padding: 60px 0;">
+        <h1>ProyectoPrueba</h1>
+        <p class="subtitle">Plataforma de Gestión de Tareas por Usuario</p>
+        <p class="date">Documentación Técnica - Agosto 2026</p>
+        <p style="color: #7f8c8d; margin-top: 40px;">Documento generado automáticamente desde el repositorio oficial</p>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- Tabla de contenidos -->
+    <div class="toc">
+        <h2>📋 Tabla de Contenidos</h2>
+        <ul>
+            <li><a href="#introduccion">1. Introducción</a></li>
+            <li><a href="#tecnologias">2. Stack Tecnológico</a></li>
+            <li><a href="#arquitectura">3. Arquitectura del Proyecto</a></li>
+            <li><a href="#estructura">4. Estructura de Directorios</a></li>
+            <li><a href="#configuracion">5. Configuración e Instalación</a></li>
+            <li><a href="#modulos">6. Módulos Principales</a></li>
+            <li><a href="#proximos">7. Próximos Pasos</a></li>
+        </ul>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- Introducción -->
+    <h2 id="introduccion">1. Introducción</h2>
+    <p>
+        <strong>ProyectoPrueba</strong> es una plataforma empresarial moderna diseñada para la <span class="highlight">gestión eficiente de tareas por usuario</span>. 
+        El proyecto se encuentra en fase de scaffold inicial, con la arquitectura base completa y lista para el desarrollo de módulos específicos.
+    </p>
+    
+    <div class="feature-box">
+        <h3>🎯 Objetivo Principal</h3>
+        <p>
+            Proporcionar una solución integral para que los usuarios puedan crear, organizar, asignar y monitorear tareas 
+            de forma colaborativa, con autenticación segura y auditoría completa de operaciones.
+        </p>
+    </div>
+    
+    <h3>✨ Características Principales</h3>
+    <ul>
+        <li><strong>Gestión de Tareas:</strong> Crear, actualizar, eliminar y completar tareas</li>
+        <li><strong>Autenticación JWT:</strong> Sistema seguro con tokens de acceso y refresco</li>
+        <li><strong>Gestión de Usuarios:</strong> Roles, permisos y control de acceso</li>
+        <li><strong>Auditoría:</strong> Registro completo de todas las operaciones</li>
+        <li><strong>Notificaciones:</strong> Sistema de alertas para eventos importantes</li>
+        <li><strong>Documentación Swagger:</strong> API completamente documentada</li>
+        <li><strong>Containerización:</strong> Docker y Docker Compose para despliegue</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    
+    <!-- Stack Tecnológico -->
+    <h2 id="tecnologias">2. Stack Tecnológico</h2>
+    
+    <div class="stats">
+        <div class="stat-card">
+            <h3>Backend</h3>
+            <div class="stat-value">NestJS</div>
+            <p>Node.js + TypeScript</p>
+        </div>
+        <div class="stat-card">
+            <h3>Frontend</h3>
+            <div class="stat-value">React</div>
+            <p>Vite + TypeScript</p>
+        </div>
+        <div class="stat-card">
+            <h3>Base de Datos</h3>
+            <div class="stat-value">PostgreSQL</div>
+            <p>Prisma ORM</p>
+        </div>
+    </div>
+    
+    <h3>📦 Dependencias Principales</h3>
+    
+    <table>
+        <tr>
+            <th>Componente</th>
+            <th>Tecnología</th>
+            <th>Versión</th>
+            <th>Propósito</th>
+        </tr>
+        <tr>
+            <td><strong>Backend</strong></td>
+            <td>NestJS</td>
+            <td>^9.0.0</td>
+            <td>Framework Node.js para APIs</td>
+        </tr>
+        <tr>
+            <td><strong>ORM</strong></td>
+            <td>Prisma</td>
+            <td>^5.0.0</td>
+            <td>ORM y migraciones</td>
+        </tr>
+        <tr>
+            <td><strong>Autenticación</strong></td>
+            <td>JWT</td>
+            <td>^9.0.0</td>
+            <td>Tokens seguros</td>
+        </tr>
+        <tr>
+            <td><strong>Encriptación</strong></td>
+            <td>Bcrypt</td>
+            <td>^5.1.0</td>
+            <td>Hasheo de contraseñas</td>
+        </tr>
+        <tr>
+            <td><strong>Frontend</strong></td>
+            <td>React</td>
+            <td>^18.2.0</td>
+            <td>UI library</td>
+        </tr>
+        <tr>
+            <td><strong>Build Tool</strong></td>
+            <td>Vite</td>
+            <td>^5.0.0</td>
+            <td>Bundler y dev server</td>
+        </tr>
+        <tr>
+            <td><strong>Lenguaje</strong></td>
+            <td>TypeScript</td>
+            <td>^5.0.0</td>
+            <td>Tipado estático</td>
+        </tr>
+    </table>
+    
+    <div class="feature-box">
+        <h3>🔧 Herramientas de Desarrollo</h3>
+        <div class="tech-stack">
+            <span class="tech-badge">TypeScript 5.0</span>
+            <span class="tech-badge">Passport.js</span>
+            <span class="tech-badge">Swagger</span>
+            <span class="tech-badge">Validators</span>
+            <span class="tech-badge">Docker</span>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- Arquitectura -->
+    <h2 id="arquitectura">3. Arquitectura del Proyecto</h2>
+    
+    <p>
+        El proyecto sigue una arquitectura de <strong>monorepo</strong> con separación clara entre backend y frontend, 
+        facilita el desarrollo independiente y simultáneo de ambos componentes.
+    </p>
+    
+    <h3>🏗️ Diagrama de Arquitectura</h3>
+    <div class="structure-box">
+┌─────────────────────────────────────────────────────────┐
+│                   CLIENTE (Frontend)                    │
+│              React + TypeScript + Vite                  │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     │ HTTP/REST API
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│                   SERVIDOR (Backend)                    │
+│             NestJS + TypeScript + Express               │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │  Controllers (API Endpoints)                     │   │
+│  │  ├─ Auth Controller                              │   │
+│  │  ├─ Users Controller                             │   │
+│  │  ├─ Tasks Controller                             │   │
+│  │  ├─ Audit Controller                             │   │
+│  │  └─ Notifications Controller                     │   │
+│  └──────────────────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │  Services (Business Logic)                       │   │
+│  │  ├─ AuthService (JWT, Passport)                 │   │
+│  │  ├─ UsersService                                │   │
+│  │  ├─ TasksService                                │   │
+│  │  ├─ AuditService                                │   │
+│  │  └─ NotificationsService                        │   │
+│  └──────────────────────────────────────────────────┘   │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │  Middleware & Guards                             │   │
+│  │  ├─ JWT Guard                                    │   │
+│  │  ├─ Auth Guard                                   │   │
+│  │  └─ Validation Pipe                              │   │
+│  └──────────────────────────────────────────────────┘   │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     │ SQL / Prisma
+                     │
+┌────────────────────▼────────────────────────────────────┐
+│              BASE DE DATOS (PostgreSQL)                 │
+│  ┌──────────────────────────────────────────────────┐   │
+│  │  Tablas Principales:                            │   │
+│  │  ├─ users                                        │   │
+│  │  ├─ tasks                                        │   │
+│  │  ├─ audit_logs                                   │   │
+│  │  └─ notifications                                │   │
+│  └──────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘
+    </div>
+    
+    <h3>Flujo de Autenticación</h3>
+    <ol>
+        <li><strong>Login:</strong> Usuario envía credenciales (email + password)</li>
+        <li><strong>Validación:</strong> Backend valida y compara password con bcrypt</li>
+        <li><strong>Token Generation:</strong> Se genera JWT con access_token y refresh_token</li>
+        <li><strong>Almacenamiento:</strong> Cliente guarda tokens (localStorage/sessionStorage)</li>
+        <li><strong>Requests Autenticados:</strong> Todas las requests incluyen el access_token en headers</li>
+        <li><strong>Refresh:</strong> Al expirar, se usa refresh_token para obtener nuevo access_token</li>
+    </ol>
+    
+    <div class="page-break"></div>
+    
+    <!-- Estructura de Directorios -->
+    <h2 id="estructura">4. Estructura de Directorios</h2>
+    
+    <h3>📁 Estructura General</h3>
+    <div class="structure-box">
+ProyectoPrueba/
+├── backend/                    # Código del servidor NestJS
+│   ├── src/
+│   │   ├── main.ts            # Punto de entrada
+│   │   ├── app.module.ts       # Módulo principal
+│   │   ├── auth/              # Módulo de autenticación
+│   │   ├── users/             # Módulo de usuarios
+│   │   ├── tasks/             # Módulo de tareas
+│   │   ├── audit/             # Módulo de auditoría
+│   │   ├── notifications/     # Módulo de notificaciones
+│   │   ├── common/            # Utilidades compartidas
+│   │   └── prisma/            # Configuración de Prisma
+│   ├── prisma/
+│   │   └── schema.prisma       # Esquema de BD
+│   ├── Dockerfile             # Imagen Docker del backend
+│   ├── package.json            # Dependencias
+│   └── tsconfig.json           # Configuración TypeScript
+│
+├── frontend/                   # Código del cliente React
+│   ├── src/
+│   │   ├── main.tsx           # Punto de entrada
+│   │   ├── App.tsx            # Componente raíz
+│   │   ├── components/        # Componentes React
+│   │   ├── pages/             # Páginas de la app
+│   │   ├── services/          # Llamadas a APIs
+│   │   ├── hooks/             # Custom hooks
+│   │   ├── context/           # Context API
+│   │   ├── styles/            # Estilos CSS
+│   │   └── utils/             # Funciones auxiliares
+│   ├── index.html             # HTML principal
+│   ├── vite.config.ts         # Configuración Vite
+│   ├── package.json            # Dependencias
+│   └── tsconfig.json           # Configuración TypeScript
+│
+├── docker-compose.yml         # Orquestación de contenedores
+├── .env.example               # Variables de entorno de ejemplo
+├── .gitignore                 # Archivos ignorados por git
+└── README.md                  # Documentación principal
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- Configuración e Instalación -->
+    <h2 id="configuracion">5. Configuración e Instalación</h2>
+    
+    <h3>📋 Requisitos Previos</h3>
+    <ul>
+        <li><strong>Docker & Docker Compose:</strong> Para ejecución en contenedores (recomendado)</li>
+        <li><strong>Node.js 18+:</strong> Si ejecutas localmente</li>
+        <li><strong>npm o yarn:</strong> Gestor de paquetes</li>
+        <li><strong>PostgreSQL 15+:</strong> Si no usas Docker</li>
+        <li><strong>Git:</strong> Para control de versiones</li>
+    </ul>
+    
+    <h3>🚀 Instalación Rápida (Recomendado - Docker Compose)</h3>
+    
+    <div class="code-block">
+# 1. Clonar el repositorio
+git clone https://github.com/LuisssGit/PoryectoPrueba.git
+cd PoryectoPrueba
+
+# 2. Revisar variables de entorno
+cat .env.example
+
+# 3. Crear archivo .env (opcional, Docker usa defaults)
+cp .env.example .env
+
+# 4. Construir e iniciar servicios
+docker compose up --build
+
+# El proyecto estará disponible en:
+# - Frontend: http://localhost:3000
+# - Backend: http://localhost:3001
+# - Swagger: http://localhost:3001/api/docs
+# - Base de datos: localhost:5432
+    </div>
+    
+    <h3>⚙️ Instalación Local</h3>
+    
+    <div class="code-block">
+# Backend
+cd backend
+npm install
+npm run prisma:generate
+npm run prisma:migrate
+npm run start:dev
+
+# En otra terminal - Frontend
+cd frontend
+npm install
+npm run dev
+    </div>
+    
+    <h3>🔐 Variables de Entorno Importantes</h3>
+    <div class="structure-box">
+# Backend
+DATABASE_URL=postgresql://user:password@localhost:5432/proyectoprueba
+JWT_SECRET=tu_secret_key_muy_seguro
+JWT_EXPIRATION=3600
+JWT_REFRESH_EXPIRATION=604800
+NODE_ENV=development
+PORT=3001
+
+# Frontend
+VITE_API_URL=http://localhost:3001
+VITE_API_PREFIX=/api
+    </div>
+    
+    <div class="warning-box">
+        <strong>⚠️ Importante:</strong> Nunca comitees el archivo .env con credenciales reales. 
+        Usa .env.example para proporcionar plantillas a otros desarrolladores.
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- Módulos Principales -->
+    <h2 id="modulos">6. Módulos Principales</h2>
+    
+    <h3>🔐 Auth Module</h3>
+    <p>Maneja la autenticación y autorización del sistema.</p>
+    <div class="feature-box">
+        <strong>Endpoints principales:</strong>
+        <ul>
+            <li><code>POST /auth/register</code> - Registrar nuevo usuario</li>
+            <li><code>POST /auth/login</code> - Iniciar sesión</li>
+            <li><code>POST /auth/refresh</code> - Refrescar token JWT</li>
+            <li><code>POST /auth/logout</code> - Cerrar sesión</li>
+            <li><code>GET /auth/profile</code> - Obtener perfil actual</li>
+        </ul>
+    </div>
+    
+    <h3>👥 Users Module</h3>
+    <p>Gestión de usuarios, roles y permisos.</p>
+    <div class="feature-box">
+        <strong>Endpoints principales:</strong>
+        <ul>
+            <li><code>GET /users</code> - Listar usuarios</li>
+            <li><code>GET /users/:id</code> - Obtener usuario específico</li>
+            <li><code>PUT /users/:id</code> - Actualizar usuario</li>
+            <li><code>DELETE /users/:id</code> - Eliminar usuario</li>
+            <li><code>GET /users/:id/tasks</code> - Tareas del usuario</li>
+        </ul>
+    </div>
+    
+    <h3>✅ Tasks Module</h3>
+    <p>Sistema completo de gestión de tareas.</p>
+    <div class="feature-box">
+        <strong>Endpoints principales:</strong>
+        <ul>
+            <li><code>GET /tasks</code> - Listar tareas del usuario</li>
+            <li><code>POST /tasks</code> - Crear nueva tarea</li>
+            <li><code>GET /tasks/:id</code> - Obtener detalle de tarea</li>
+            <li><code>PUT /tasks/:id</code> - Actualizar tarea</li>
+            <li><code>DELETE /tasks/:id</code> - Eliminar tarea</li>
+            <li><code>PATCH /tasks/:id/status</code> - Cambiar estado</li>
+            <li><code>GET /tasks/filter</code> - Filtrar por criterios</li>
+        </ul>
+    </div>
+    
+    <h3>📝 Audit Module</h3>
+    <p>Registro y auditoría de todas las operaciones.</p>
+    <div class="feature-box">
+        <strong>Funcionalidades:</strong>
+        <ul>
+            <li>Registro automático de creación/actualización/eliminación</li>
+            <li>Historial de cambios</li>
+            <li>Trazabilidad de usuario y timestamp</li>
+            <li>Búsqueda y filtrado de logs</li>
+            <li><code>GET /audit/logs</code> - Obtener logs</li>
+        </ul>
+    </div>
+    
+    <h3>🔔 Notifications Module</h3>
+    <p>Sistema de notificaciones para eventos importantes.</p>
+    <div class="feature-box">
+        <strong>Tipos de notificaciones:</strong>
+        <ul>
+            <li>Tareas asignadas</li>
+            <li>Recordatorios de vencimiento</li>
+            <li>Cambios de estado</li>
+            <li>Mensajes de usuario</li>
+            <li><code>GET /notifications</code> - Listar notificaciones</li>
+            <li><code>PATCH /notifications/:id/read</code> - Marcar como leído</li>
+        </ul>
+    </div>
+    
+    <div class="page-break"></div>
+    
+    <!-- Próximos Pasos -->
+    <h2 id="proximos">7. Próximos Pasos</h2>
+    
+    <h3>🎯 Roadmap de Desarrollo</h3>
+    
+    <h4>Fase 1: Implementación de Módulos (Actual)</h4>
+    <div class="feature-box">
+        <ul>
+            <li>☐ Completar módulo Auth (JWT, refresh tokens)</li>
+            <li>☐ Implementar módulo Users con roles/permisos</li>
+            <li>☐ Desarrollar módulo Tasks completo</li>
+            <li>☐ Integrar módulo Audit</li>
+            <li>☐ Configurar módulo Notifications</li>
+            <li>☐ Documentación Swagger completa</li>
+        </ul>
+    </div>
+    
+    <h4>Fase 2: Frontend</h4>
+    <div class="feature-box">
+        <ul>
+            <li>☐ Componentes de autenticación (login/registro)</li>
+            <li>☐ Dashboard de usuario</li>
+            <li>☐ Gestión visual de tareas</li>
+            <li>☐ Kanban board o lista interactiva</li>
+            <li>☐ Gestión de usuarios (admin panel)</li>
+            <li>☐ Notificaciones en tiempo real</li>
+            <li>☐ Responsive design</li>
+        </ul>
+    </div>
+    
+    <h4>Fase 3: Testing & QA</h4>
+    <div class="feature-box">
+        <ul>
+            <li>☐ Unit tests (Jest)</li>
+            <li>☐ Integration tests</li>
+            <li>☐ E2E tests (Cypress/Playwright)</li>
+            <li>☐ Load testing</li>
+            <li>☐ Security audit</li>
+        </ul>
+    </div>
+    
+    <h4>Fase 4: Deployment & DevOps</h4>
+    <div class="feature-box">
+        <ul>
+            <li>☐ CI/CD pipeline (GitHub Actions)</li>
+            <li>☐ Optimización de imágenes Docker</li>
+            <li>☐ Despliegue en producción</li>
+            <li>☐ Monitoreo y logging</li>
+            <li>☐ Backup y recovery</li>
+        </ul>
+    </div>
+    
+    <h3>📚 Comandos Útiles</h3>
+    
+    <div class="code-block">
+# Backend
+npm run start:dev         # Desarrollo con hot-reload
+npm run build            # Compilar TypeScript
+npm run start            # Ejecutar en producción
+npm run prisma:generate  # Generar cliente Prisma
+npm run prisma:migrate   # Ejecutar migraciones
+
+# Frontend
+npm run dev              # Servidor de desarrollo
+npm run build            # Build para producción
+npm run preview          # Preview del build
+
+# Docker
+docker compose up --build        # Iniciar con rebuild
+docker compose up -d             # Iniciar en background
+docker compose down              # Detener y eliminar
+docker compose logs backend      # Ver logs del backend
+docker compose exec backend sh   # Acceso a terminal
+    </div>
+    
+    <h3>🔗 Enlaces Útiles</h3>
+    <ul>
+        <li><strong>Repositorio:</strong> https://github.com/LuisssGit/PoryectoPrueba</li>
+        <li><strong>NestJS Docs:</strong> https://docs.nestjs.com</li>
+        <li><strong>React Docs:</strong> https://react.dev</li>
+        <li><strong>Prisma Docs:</strong> https://www.prisma.io/docs</li>
+        <li><strong>Vite Docs:</strong> https://vitejs.dev</li>
+        <li><strong>TypeScript Docs:</strong> https://www.typescriptlang.org</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    
+    <!-- Conclusión -->
+    <h2>Conclusión</h2>
+    <p>
+        <strong>ProyectoPrueba</strong> es una base sólida y moderna para una plataforma de gestión de tareas. 
+        Con una arquitectura bien definida, stack tecnológico actualizado y modularidad clara, está lista para escalar 
+        y adaptarse a requisitos empresariales complejos.
+    </p>
+    
+    <div class="feature-box">
+        <h3>✅ Lo que ya está listo:</h3>
+        <ul>
+            <li>✓ Estructura de proyecto completa</li>
+            <li>✓ Configuración de base de datos (Prisma)</li>
+            <li>✓ Docker y Docker Compose</li>
+            <li>✓ Dependencias instaladas</li>
+            <li>✓ Esquema inicial de modelos</li>
+            <li>✓ Configuración de TypeScript</li>
+        </ul>
+    </div>
+    
+    <p style="margin-top: 30px; color: #7f8c8d;">
+        <strong>Próximo paso recomendado:</strong> Ejecutar <code>docker compose up --build</code> 
+        y comenzar con la implementación de los módulos especificados.
+    </p>
+    
+    <footer>
+        <p>📄 Documentación de ProyectoPrueba - Generada automáticamente</p>
+        <p>🔗 Repositorio: LuisssGit/PoryectoPrueba</p>
+        <p>© 2026 - ProyectoPrueba. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
