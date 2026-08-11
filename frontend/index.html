@@ -1,10 +1,144 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>pROBANDO EL CI / CD</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    Hola desde Azure
-  </body>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prueba Azure CI/CD Automatizado</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family:'Segoe UI',sans-serif;
+        background:#f4f6f9;
+        color:#2c3e50;
+    }
+
+    .hero{
+        background:#002050;
+        color:white;
+        padding:80px 40px;
+    }
+
+    .container{
+        max-width:1200px;
+        margin:auto;
+    }
+
+    .hero h1{
+        font-size:48px;
+        margin-bottom:15px;
+        font-weight:600;
+    }
+
+    .hero p{
+        font-size:20px;
+        opacity:.9;
+    }
+
+    .content{
+        padding:60px 40px;
+    }
+
+    .card{
+        background:white;
+        padding:40px;
+        border-radius:12px;
+        box-shadow:0 4px 15px rgba(0,0,0,.1);
+    }
+
+    .status{
+        display:inline-block;
+        margin-top:20px;
+        padding:12px 24px;
+        background:#107C10;
+        color:white;
+        border-radius:6px;
+        font-weight:600;
+    }
+
+    .info{
+        margin-top:30px;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:20px;
+    }
+
+    .box{
+        background:#ffffff;
+        padding:20px;
+        border-left:4px solid #0078D4;
+        box-shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .box h3{
+        margin-bottom:10px;
+        color:#0078D4;
+    }
+
+    footer{
+        text-align:center;
+        padding:25px;
+        background:#ffffff;
+        color:#666;
+        border-top:1px solid #ddd;
+    }
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+    <div class="container">
+        <h1>Probando Azure CI/CD Automatizado</h1>
+        <p>Validación de despliegue continuo en entorno empresarial.</p>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container">
+
+        <div class="card">
+            <h2>Estado del Despliegue</h2>
+
+            <p>
+                La aplicación fue desplegada exitosamente mediante un proceso
+                automatizado de Integración Continua y Entrega Continua (CI/CD)
+                sobre Microsoft Azure.
+            </p>
+
+            <div class="status">
+                Despliegue Exitoso
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="box">
+                <h3>CI</h3>
+                <p>Validación y compilación automática del código fuente.</p>
+            </div>
+
+            <div class="box">
+                <h3>CD</h3>
+                <p>Publicación automática hacia el entorno de ejecución.</p>
+            </div>
+
+            <div class="box">
+                <h3>Azure</h3>
+                <p>Infraestructura segura y escalable para aplicaciones empresariales.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    Microsoft Azure | Prueba de CI/CD Automatizado | Ambiente Corporativo
+</footer>
+
+</body>
 </html>
