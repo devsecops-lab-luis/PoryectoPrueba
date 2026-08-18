@@ -1,0 +1,15 @@
+name: Revisar código
+
+on:
+  push:
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Revisar código
+        run: npx eslint .
