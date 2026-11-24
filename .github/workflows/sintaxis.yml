@@ -3,6 +3,9 @@ name: Revisar código
 on:
   push:
 
+permissions:
+  contents: read
+
 jobs:
   revisar:
     runs-on: ubuntu-latest
